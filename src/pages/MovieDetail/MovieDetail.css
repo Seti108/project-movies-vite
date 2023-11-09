@@ -25,6 +25,7 @@ a {
 .back-link {
   display: block;
   margin-bottom: 40px;
+  width: fit-content;
 }
 
 .back-link a {
@@ -52,6 +53,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .wrapper-movie-info {
@@ -84,7 +86,7 @@ a {
   align-items: center;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   .movie-section {
     flex-direction: column-reverse;
     margin: 0;
