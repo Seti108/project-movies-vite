@@ -10,7 +10,7 @@ export const App = () => {
     <>
       <Route path="/" element={<MovieList />} />
       <Route path="/movie/:movieId" element={<MovieDetail />} />
-      <Route path="/404" element={<ErrorPage />} />
+      <Route path="/*" element={<ErrorPage />} />
     </>
   );
 
