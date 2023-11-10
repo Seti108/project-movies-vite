@@ -1,0 +1,110 @@
+.movieCard img{
+        width: 100%;
+        height:auto;
+}
+
+.movieCard {
+    position: relative;
+}
+.movieInfo {
+position: absolute;
+bottom: 0;
+padding: 200px 16px 24px 16px;
+box-sizing: border-box;
+width: 100%;
+background: linear-gradient(180deg, rgba(26, 24, 37, 0) 0%, rgba(26, 24, 37, 0.80) 100%)
+}
+
+.movieInfo p:first-child {
+font-weight: 700;
+padding-bottom: 8px;
+font-size: clamp(16px, 4vw, 20px);
+}
+
+.movieInfo .date{
+    display:flex;
+    align-items: center;
+}
+.movieInfo img{
+    width: auto;
+    padding-right: 8px;
+}
+
+/* GRID */
+.movieCard:nth-child(1),
+.movieCard:nth-child(2),
+.movieCard:nth-child(3),
+.movieCard:nth-child(4),
+.movieCard:nth-child(8),
+.movieCard:nth-child(9),
+.movieCard:nth-child(10),
+.movieCard:nth-child(11),
+.movieCard:nth-child(15),
+.movieCard:nth-child(16),
+.movieCard:nth-child(17),
+.movieCard:nth-child(18) {
+  grid-column: auto / span 3;
+}
+
+/* GRID */
+.movieCard:nth-child(5),
+.movieCard:nth-child(6),
+.movieCard:nth-child(7),
+.movieCard:nth-child(12),
+.movieCard:nth-child(13),
+.movieCard:nth-child(14),
+.movieCard:nth-child(19),
+.movieCard:nth-child(20) {
+    grid-column: auto / span 4;
+}
+
+
+@media only screen and (max-width: 1024px) {
+        .movieCard:nth-child(1),
+        .movieCard:nth-child(2),
+        .movieCard:nth-child(3),
+        .movieCard:nth-child(4),
+        .movieCard:nth-child(8),
+        .movieCard:nth-child(9),
+        .movieCard:nth-child(10),
+        .movieCard:nth-child(11),
+        .movieCard:nth-child(15),
+        .movieCard:nth-child(16),
+        .movieCard:nth-child(17),
+        .movieCard:nth-child(18),
+        .movieCard:nth-child(5),
+        .movieCard:nth-child(6),
+        .movieCard:nth-child(7),
+        .movieCard:nth-child(12),
+        .movieCard:nth-child(13),
+        .movieCard:nth-child(14),
+        .movieCard:nth-child(19),
+        .movieCard:nth-child(20) {
+            grid-column: auto / span 6;
+        }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .movieCard:nth-child(1),
+    .movieCard:nth-child(2),
+    .movieCard:nth-child(3),
+    .movieCard:nth-child(4),
+    .movieCard:nth-child(8),
+    .movieCard:nth-child(9),
+    .movieCard:nth-child(10),
+    .movieCard:nth-child(11),
+    .movieCard:nth-child(15),
+    .movieCard:nth-child(16),
+    .movieCard:nth-child(17),
+    .movieCard:nth-child(18),
+    .movieCard:nth-child(5),
+    .movieCard:nth-child(6),
+    .movieCard:nth-child(7),
+    .movieCard:nth-child(12),
+    .movieCard:nth-child(13),
+    .movieCard:nth-child(14),
+    .movieCard:nth-child(19),
+    .movieCard:nth-child(20) {
+        grid-column: auto / span 12;
+    }
+}
