@@ -1,8 +1,8 @@
 export const MovieInfo = ({ title, date }) => {
   return (
-    <div>
+    <div className="movieInfo">
       <p>{title}</p>
-      <p>{date}</p>
+      <span className="date"><img src="../../src/assets/calendar-icon.svg" alt="calendar icon" /><p>{date}</p></span>
     </div>
   );
 };

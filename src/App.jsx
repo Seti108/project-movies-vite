@@ -16,8 +16,8 @@ export const App = () => {
 
   return (
     <>
-      <Header />
       <BrowserRouter>
+      <Header />
         <Routes>{routes}</Routes>
       </BrowserRouter>
     </>

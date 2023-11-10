@@ -23,6 +23,17 @@
   background: linear-gradient(45deg, #1a1825, transparent);
   z-index: -1;
 }
+.wrapper-hero .movieInfo {
+  position: relative;
+  background: none;
+  padding: 0;
+}
+
+.wrapper-hero {
+  position: absolute;
+  padding: 200px 16px 24px 16px;
+  bottom: 0px;
+}
 
 @media screen and (max-width: 767px) {
   .hero {

@@ -3,8 +3,9 @@ import { MovieHero } from "../components/MovieHero/MovieHero";
 import { MovieCard } from "../components/MovieCard/MovieCard";
 
 export const MovieList = () => {
+  const apiEnv = import.meta.env.VITE_MOVIE_API_KEY;
   const apiKey = "d14980dd8df22d55a4bf4592f082a8c6";
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiEnv}&language=en-US&page=1`;
 
   const [movies, setMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

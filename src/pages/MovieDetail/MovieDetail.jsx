@@ -2,14 +2,15 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ErrorPage } from "../ErrorPage";
 import "./MovieDetail.css";
+import star from "../../assets/star-icon.svg";
 
 export const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [errorState, setErrorState] = useState(false);
   const { movieId } = useParams();
-  const apiKey = "d14980dd8df22d55a4bf4592f082a8c6";
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
+  const apiEnv = import.meta.env.VITE_MOVIE_API_KEY;
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiEnv}&language=en-US`;
   const viewport = window.innerWidth;
   const imageUrl = `https://image.tmdb.org/t/p/`;
   const imageMedium = "w1280";
@@ -57,7 +58,7 @@ export const MovieDetail = () => {
             <h1>{movieDetails?.title}</h1>
             <div className="wrapper-movie-info">
               <span className="rating">
-                <img src="../../src/assets/star-icon.svg" alt="star icon" />
+                <img src={star} alt="star icon" />
                 <p>{parseFloat(movieDetails?.vote_average).toFixed(1)}</p>
               </span>
               <span className="time">
@@ -70,7 +71,7 @@ export const MovieDetail = () => {
               </span>
             </div>
             <p>{movieDetails?.overview}</p>
-            <button className="movie-detail-cta">
+            <button className="cta-button">
               <a href={movieDetails?.homepage}>
                 <span>Learn More</span>
                 <img
