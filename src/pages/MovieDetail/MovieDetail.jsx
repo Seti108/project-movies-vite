@@ -45,7 +45,7 @@ export const MovieDetail = () => {
   return (
     <>
       {isLoading ? (
-        !errorState && <p>Page loading...</p>
+        !errorState && <p className="page-load-message">Page loading...</p>
       ) : (
         <section className="movie-section">
           <div className="movie-info">

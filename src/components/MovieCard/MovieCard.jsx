@@ -11,7 +11,7 @@ export const MovieCard = ({ movie }) => {
 
   return (
     <Link className="movieCard" to={`/movie/${movie.id}`}>
-      <img src={fullImageUrl} />
+      <img fetchpriority="low" src={fullImageUrl} />
       <MovieInfo title={movie.title} date={movie.release_date} />
     </Link>
   );

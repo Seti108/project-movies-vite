@@ -5,7 +5,7 @@ export const ErrorPage = () => {
   const btnText = "Back to home";
   return (
     <section className="error-page">
-      <h1>404</h1>
+      <h1>Something went wrong..</h1>
       <p>Page not found</p>
       <CTAButton btnTarget={btnTarget} btnText={btnText} />
     </section>
