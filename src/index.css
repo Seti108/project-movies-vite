@@ -66,20 +66,20 @@ h1 {
 @media only screen and (max-width: 1024px) {
   .movieListContainer {
     gap: 20px;
-    padding: 30px 80px 0 80px;
+    padding: 30px 40px 0 40px;
   }
   .header {
-    padding: 40px 80px 20px 80px;
+    padding: 40px 40px 20px 40px;
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 700px) {
   .movieListContainer {
     gap: 20px;
-    padding: 20px 40px 0px 40px;
+    padding: 20px 20px 0px 20px;
   }
   .header {
-    padding: 30px 40px 20px 40px;
+    padding: 30px 200px 20px 20px;
   }
 }
 

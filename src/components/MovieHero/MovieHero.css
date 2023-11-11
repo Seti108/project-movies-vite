@@ -31,8 +31,9 @@
 
 .wrapper-hero {
   position: absolute;
-  padding: 200px 16px 24px 16px;
+  padding: 200px 0 24px 116px;
   bottom: 0px;
+  left: 0px;
 }
 
 @media screen and (max-width: 767px) {
@@ -41,3 +42,16 @@
     padding: 50px 40px;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .wrapper-hero {
+    padding: 200px 0 24px 56px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .wrapper-hero {
+    padding: 200px 20px 24px 36px;
+  }
+}
+

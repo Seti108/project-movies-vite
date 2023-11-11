@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { ErrorPage } from "../ErrorPage";
 import "./MovieDetail.css";
 import star from "../../assets/star-icon.svg";
+import time from "../../assets/clock-icon.svg";
+import calendar from "../../assets/calendar-icon.svg";
+import rightIcon from  "../../assets/chevron_right_icon.svg"
 
 export const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -78,14 +81,11 @@ export const MovieDetail = () => {
                 <p>{parseFloat(movieDetails?.vote_average).toFixed(1)}</p>
               </span>
               <span className="time">
-                <img src="../../src/assets/clock-icon.svg" alt="clock icon" />
+                <img src={time} alt="clock icon" />
                 <span>{movieDetails?.runtime}</span>
               </span>
               <span className="time">
-                <img
-                  src="../../src/assets/calendar-icon.svg"
-                  alt="calendar icon"
-                />
+                <img src={calendar} alt="calendar icon" />
                 <p>{movieDetails?.release_date}</p>
               </span>
             </div>
@@ -93,7 +93,10 @@ export const MovieDetail = () => {
             <button className="cta-button">
               <a href={movieDetails?.homepage}>
                 <span>Learn More</span>
-                <img src="../../src/assets/chevron_right_icon.svg" alt=""></img>
+                <img
+                  src={rightIcon}
+                  alt=""
+                ></img>
               </a>
             </button>
           </div>
