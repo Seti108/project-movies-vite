@@ -11,8 +11,8 @@ const imgUrl = `https://image.tmdb.org/t/p/`;
 const viewport = window.innerWidth;
 
 const adaptedImage = () => {
-  if (viewport < 768) return imageSmall;
-  else if (viewport > 768 && viewport < 1024) return imageMedium;
+  if (viewport < 768) return imageMedium;
+  else if (viewport > 768 && viewport < 1024) return imageSmall;
   else return imageBig;
 };
 

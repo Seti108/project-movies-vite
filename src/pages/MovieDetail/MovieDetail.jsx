@@ -15,7 +15,6 @@ export const MovieDetail = () => {
   const [errorState, setErrorState] = useState(false);
   const { movieId } = useParams();
   const apiEnv = import.meta.env.VITE_MOVIE_API_TOKEN;
-  // ?api_key=${apiEnv}
   const url = `https://api.themoviedb.org/3/movie/${movieId}&language=en-US`;
   const viewport = window.innerWidth;
   const imageMedium = "w1280";

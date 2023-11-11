@@ -1,12 +1,11 @@
 import { useParams, useLocation, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
+import { ErrorPage } from "../ErrorPage";
 import "./MovieSimilar.css";
 import leftIcon from "../../assets/chevron_left_icon.svg";
 
 export const MovieSimilar = () => {
-  //   const movieName = name.location.state.name;
-
   let { state } = useLocation();
 
   const [movieSimilar, setMovieSimilar] = useState(null);
@@ -26,7 +25,6 @@ export const MovieSimilar = () => {
   };
 
   const fetchSimilarMovies = () => {
-    //   console.log(movieId);
     fetch(url, options)
       .then((res) => {
         if (res.ok) return res.json();
@@ -55,13 +53,12 @@ export const MovieSimilar = () => {
 
   return (
     <main>
-      {isLoading ? (
+      {isLoading && !errorState ? (
         <p className="page-load-message">Loading movies...</p>
       ) : (
         <>
-          <header>{/* <MovieHero movie={movies.results[0]} /> */}</header>
           <section className="MovieSimilarContainer">
-            <h2>Movies similar to: {state.name}</h2>
+            <h2>Movies similar to: {state?.name}</h2>
             <span className="back-link">
               <Link to={-1}>
                 <img src={leftIcon} alt="" />
@@ -77,6 +74,7 @@ export const MovieSimilar = () => {
           </section>
         </>
       )}
+      {errorState && <ErrorPage />}
     </main>
   );
 };
