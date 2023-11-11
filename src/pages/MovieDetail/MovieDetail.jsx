@@ -9,8 +9,9 @@ export const MovieDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorState, setErrorState] = useState(false);
   const { movieId } = useParams();
-  const apiEnv = import.meta.env.VITE_MOVIE_API_KEY;
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiEnv}&language=en-US`;
+  const apiEnv = import.meta.env.VITE_MOVIE_API_TOKEN;
+  // ?api_key=${apiEnv}
+  const url = `https://api.themoviedb.org/3/movie/${movieId}&language=en-US`;
   const viewport = window.innerWidth;
   const imageUrl = `https://image.tmdb.org/t/p/`;
   const imageMedium = "w1280";
@@ -22,9 +23,22 @@ export const MovieDetail = () => {
   };
   const fullImage = imageUrl + adaptedImage(viewport);
 
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${apiEnv}`,
+    },
+  };
+
   const fetchMovieDetails = () => {
-    fetch(url)
-      .then((res) => (res.ok ? res.json() : setErrorState(true)))
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) return res.json();
+        else if (res.status == 404)
+          throw new Error("No movie found. Try another one");
+        else throw new Error("Problem with fetching the API");
+      })
       .then((data) => {
         if (data) {
           setMovieDetails(data);
@@ -34,7 +48,9 @@ export const MovieDetail = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        setErrorState(true);
+        if (err.message === "No movie found. Try another one")
+          console.error(err.message);
       });
   };
 
@@ -45,7 +61,7 @@ export const MovieDetail = () => {
   return (
     <>
       {isLoading ? (
-        !errorState && <p>Page loading...</p>
+        !errorState && <p className="page-load-message">Page loading...</p>
       ) : (
         <section className="movie-section">
           <div className="movie-info">
@@ -62,11 +78,14 @@ export const MovieDetail = () => {
                 <p>{parseFloat(movieDetails?.vote_average).toFixed(1)}</p>
               </span>
               <span className="time">
-                <img src="../../src/assets/clock-icon.svg" alt="star icon" />
+                <img src="../../src/assets/clock-icon.svg" alt="clock icon" />
                 <span>{movieDetails?.runtime}</span>
               </span>
               <span className="time">
-                <img src="../../src/assets/calendar-icon.svg" alt="star icon" />
+                <img
+                  src="../../src/assets/calendar-icon.svg"
+                  alt="calendar icon"
+                />
                 <p>{movieDetails?.release_date}</p>
               </span>
             </div>
@@ -74,10 +93,7 @@ export const MovieDetail = () => {
             <button className="cta-button">
               <a href={movieDetails?.homepage}>
                 <span>Learn More</span>
-                <img
-                  src="../../src/assets/chevron_right_icon.svg"
-                  alt="Visit movie website"
-                ></img>
+                <img src="../../src/assets/chevron_right_icon.svg" alt=""></img>
               </a>
             </button>
           </div>

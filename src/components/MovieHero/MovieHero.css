@@ -38,6 +38,6 @@
 @media screen and (max-width: 767px) {
   .hero {
     min-height: 300px;
-    padding: 50px 1rem;
+    padding: 50px 40px;
   }
 }
