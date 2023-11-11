@@ -19,10 +19,7 @@ export const CTAButton = ({ btnTarget, movie, btnText }) => {
     <button className="cta-button">
       <Link to={renderSwitch(btnTarget)}>
         {btnText}
-        <img
-          src="../../src/assets/chevron_right_icon.svg"
-          alt="Back to home"
-        ></img>
+        <img src="../../src/assets/chevron_right_icon.svg" alt=""></img>
       </Link>
     </button>
   );
