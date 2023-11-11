@@ -62,6 +62,12 @@
   grid-column: auto / span 4;
 }
 
+@media screen and (min-width: 1440px) {
+  .movieInfo p:first-child {
+    font-size: clamp(1rem, 1.2vw, 4rem);
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .movieCard:nth-child(1),
   .movieCard:nth-child(2),

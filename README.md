@@ -6,9 +6,9 @@
 
 # Movie Site Project
 
-Replace this readme with your own information about your project.
+Web app to show omvies from an API focusing on React Routing.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Developers: Joona M & Sebastian Tigerschiöld
 
 ## Getting Started with the Project
 
@@ -24,11 +24,17 @@ npm i && code . && npm run dev
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started with a mockup in Figma and then planned our components and routes. We then went ahead and built the app without and CSS.
+
+This was done in pair programming sessions.
+
+Once it was all working we split into branches and styled the app according to our Figma design.
+
+We then merged and pair programmed the last details before handing in the project.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://main--venerable-torrone-b1eaab.netlify.app/
 
 ## Instructions
 

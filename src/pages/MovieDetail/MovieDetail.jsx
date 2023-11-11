@@ -5,7 +5,8 @@ import "./MovieDetail.css";
 import star from "../../assets/star-icon.svg";
 import time from "../../assets/clock-icon.svg";
 import calendar from "../../assets/calendar-icon.svg";
-import rightIcon from  "../../assets/chevron_right_icon.svg"
+import rightIcon from "../../assets/chevron_right_icon.svg";
+import leftIcon from "../../assets/chevron_left_icon.svg";
 
 export const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -70,7 +71,7 @@ export const MovieDetail = () => {
           <div className="movie-info">
             <span className="back-link">
               <Link to="/">
-                <img src="../src/assets/chevron_left_icon.svg" alt="" />
+                <img src={leftIcon} alt="" />
                 Back
               </Link>
             </span>
@@ -93,10 +94,7 @@ export const MovieDetail = () => {
             <button className="cta-button">
               <a href={movieDetails?.homepage}>
                 <span>Learn More</span>
-                <img
-                  src={rightIcon}
-                  alt=""
-                ></img>
+                <img src={rightIcon} alt=""></img>
               </a>
             </button>
           </div>
