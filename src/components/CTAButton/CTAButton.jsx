@@ -20,8 +20,9 @@ export const CTAButton = ({ btnTarget, movie, btnText }) => {
         {btnText}
         <img
           src={rightIcon}
-          alt="Back to home"
+          alt=""
         ></img>
+
       </Link>
     </button>
   );

@@ -1,18 +1,27 @@
 import { useEffect, useState } from "react";
 import { MovieHero } from "../components/MovieHero/MovieHero";
 import { MovieCard } from "../components/MovieCard/MovieCard";
+import { ErrorPage } from "./ErrorPage";
 
 export const MovieList = () => {
-  const apiEnv = import.meta.env.VITE_MOVIE_API_KEY;
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiEnv}&language=en-US&page=1`;
+  const apiEnv = import.meta.env.VITE_MOVIE_API_TOKEN;
+  const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`;
 
   const [movies, setMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [errorState, setErrorState] = useState(false);
 
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${apiEnv}`,
+    },
+  };
+
   const fetchMovieList = () => {
-    fetch(url)
-      .then((res) => (res.ok ? res.json() : setErrorState(true)))
+    fetch(url, options)
+      .then((res) => res.json())
       .then((data) => {
         if (data) {
           setMovies(data);
@@ -36,7 +45,7 @@ export const MovieList = () => {
     <>
       <main>
         {isLoading ? (
-          <p>Loading movies...</p>
+          <p className="page-load-message">Loading movies...</p>
         ) : (
           <>
             <header>
