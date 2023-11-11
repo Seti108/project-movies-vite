@@ -1,11 +1,12 @@
 import { MovieInfo } from "../MovieInfo";
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
+import placeholder from "../../../src/assets/no-image-found.png";
 
-const imageUrl = `https://image.tmdb.org/t/p/`;
 const imageBig = "w780";
 const imageMedium = "w500";
 const imageSmall = "w300";
+const imgUrl = `https://image.tmdb.org/t/p/`;
 
 const viewport = window.innerWidth;
 
@@ -16,10 +17,19 @@ const adaptedImage = () => {
 };
 
 export const MovieCard = ({ movie }) => {
-  const fullImageUrl = imageUrl + adaptedImage() + movie.poster_path;
+  const imageUrl = () => {
+    let fullImageUrl;
+    if (movie.poster_path === null) {
+      fullImageUrl = placeholder;
+    } else {
+      fullImageUrl = imgUrl + adaptedImage() + movie.poster_path;
+    }
+    return fullImageUrl;
+  };
+  // imageUrl();
   return (
     <Link className="movieCard" to={`/movie/${movie.id}`}>
-      <img fetchpriority="low" src={fullImageUrl} />
+      <img fetchpriority="low" src={imageUrl()} />
       <MovieInfo title={movie.title} date={movie.release_date} />
     </Link>
   );

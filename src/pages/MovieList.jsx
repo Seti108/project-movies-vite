@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { MovieHero } from "../components/MovieHero/MovieHero";
 import { MovieCard } from "../components/MovieCard/MovieCard";
-import { ErrorPage } from "./ErrorPage";
 
 export const MovieList = () => {
   const apiEnv = import.meta.env.VITE_MOVIE_API_TOKEN;
@@ -21,7 +20,7 @@ export const MovieList = () => {
 
   const fetchMovieList = () => {
     fetch(url, options)
-      .then((res) => res.json())
+      .then((res) => (res.ok ? res.json() : setErrorState(true)))
       .then((data) => {
         if (data) {
           setMovies(data);
@@ -39,13 +38,11 @@ export const MovieList = () => {
     fetchMovieList();
   }, []);
 
-  if (movies) console.log(movies);
-
   return (
     <>
       <main>
         {isLoading ? (
-          <p className="page-load-message">Loading movies...</p>
+          <p>Loading movies...</p>
         ) : (
           <>
             <header>

@@ -23,6 +23,9 @@ code {
 body {
   background-color: #1a1825;
   overflow-x: hidden;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  position: relative;
 }
 
 a {
@@ -88,4 +91,18 @@ h1 {
 .page-load-message {
   text-align: center;
   margin-top: 30%;
+}
+
+/* ATTRIBUTION */
+
+.attribution {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  margin: 20px auto;
+  font-size: 10px;
+  width: max-content;
 }

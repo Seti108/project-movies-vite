@@ -58,7 +58,8 @@
 .movieCard:nth-child(12),
 .movieCard:nth-child(13),
 .movieCard:nth-child(14),
-.movieCard:nth-child(19) {
+.movieCard:nth-child(19),
+.movieCard:nth-child(20) {
   grid-column: auto / span 4;
 }
 

@@ -8,11 +8,6 @@ body {
   background-color: var(--black);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .movie-section {
   display: flex;
   max-width: 1440px;
@@ -20,6 +15,13 @@ a {
   margin-left: 100px;
   margin-top: 100px;
   gap: 40px;
+}
+
+.website-link {
+  display: block;
+  color: inherit;
+  text-decoration: underline;
+  margin-top: 1rem;
 }
 
 .back-link {
@@ -31,7 +33,6 @@ a {
 .back-link a {
   text-decoration: none;
   display: flex;
-  color: inherit;
   align-items: center;
 }
 

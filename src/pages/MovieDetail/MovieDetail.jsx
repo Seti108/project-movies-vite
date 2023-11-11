@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ErrorPage } from "../ErrorPage";
 import "./MovieDetail.css";
@@ -7,6 +7,7 @@ import time from "../../assets/clock-icon.svg";
 import calendar from "../../assets/calendar-icon.svg";
 import rightIcon from "../../assets/chevron_right_icon.svg";
 import leftIcon from "../../assets/chevron_left_icon.svg";
+import placeholderWide from "../../assets/no-image-found-wide.png";
 
 export const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -17,15 +18,24 @@ export const MovieDetail = () => {
   // ?api_key=${apiEnv}
   const url = `https://api.themoviedb.org/3/movie/${movieId}&language=en-US`;
   const viewport = window.innerWidth;
-  const imageUrl = `https://image.tmdb.org/t/p/`;
   const imageMedium = "w1280";
   const imageSmall = "w780";
+  const imgUrl = `https://image.tmdb.org/t/p/`;
+
+  const imageUrl = () => {
+    let fullImageUrl;
+    if (movieDetails.poster_path === null) {
+      fullImageUrl = placeholderWide;
+    } else {
+      fullImageUrl = imgUrl + adaptedImage() + movieDetails.poster_path;
+    }
+    return fullImageUrl;
+  };
 
   const adaptedImage = () => {
     if (viewport < 768) return imageSmall;
     else return imageMedium;
   };
-  const fullImage = imageUrl + adaptedImage(viewport);
 
   const options = {
     method: "GET",
@@ -91,16 +101,22 @@ export const MovieDetail = () => {
               </span>
             </div>
             <p>{movieDetails?.overview}</p>
+            <a className="website-link" href={movieDetails?.homepage}>
+              <span>Learn More</span>
+            </a>
+
             <button className="cta-button">
-              <a href={movieDetails?.homepage}>
-                <span>Learn More</span>
-                <img src={rightIcon} alt=""></img>
-              </a>
+              <Link
+                to={`/movie/${movieDetails.id}/similar`}
+                state={{ name: movieDetails?.title }}
+              >
+                See similar movies <img src={rightIcon} alt=""></img>
+              </Link>
             </button>
           </div>
 
           <div className="movie-img">
-            <img src={fullImage + movieDetails?.backdrop_path}></img>
+            <img src={imageUrl()}></img>
           </div>
         </section>
       )}
