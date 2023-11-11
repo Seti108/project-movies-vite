@@ -42,7 +42,7 @@ export const MovieList = () => {
     <>
       <main>
         {isLoading ? (
-          <p>Loading movies...</p>
+          <p className="page-load-message">Loading movies...</p>
         ) : (
           <>
             <header>
