@@ -1,7 +1,7 @@
 import { useParams, useLocation, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
-import "./movieSimilar.css";
+import "./MovieSimilar.css";
 import leftIcon from "../../assets/chevron_left_icon.svg";
 
 export const MovieSimilar = () => {
